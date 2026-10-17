@@ -1,0 +1,220 @@
+<title>Hem ヘマンタ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Shippori+Mincho+B1:wght@500;800&display=swap">
+<style>
+/* Layout: left-aligned editorial column. Hero pairs a big name with a JST/NPT clock pair; below, labelled rows (label left, content right). */
+:root {
+  --bg: #F2F4F6;
+  --surface: #FFFFFF;
+  --ink: #131C26;
+  --muted: #55616E;
+  --line: #D3D9E0;
+  --accent: #2A4B8D;
+  --accent-ink: #FFFFFF;
+  --sakura: #B8435D;
+  --font-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1520; --surface: #151E2B; --ink: #E7ECF2; --muted: #9AA6B3;
+    --line: #263243; --accent: #8DAEE8; --accent-ink: #0E1520; --sakura: #F08CA4;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1520; --surface: #151E2B; --ink: #E7ECF2; --muted: #9AA6B3;
+  --line: #263243; --accent: #8DAEE8; --accent-ink: #0E1520; --sakura: #F08CA4;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-block: 40px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1000px; margin: 0 auto; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Top bar */
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.top nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.top nav a { color: var(--ink); text-decoration: none; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.top nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; padding-block: 56px 64px; align-items: end; }
+.hero h1 { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(72px, 16vw, 168px); line-height: 0.9; letter-spacing: -0.02em; }
+.kana { display: block; margin-top: 14px; font-family: var(--font-display); font-weight: 500; font-size: clamp(20px, 3.4vw, 30px); color: var(--accent); letter-spacing: 0.08em; }
+.lede { margin: 28px 0 0; max-width: 34em; font-size: clamp(18px, 2.2vw, 21px); line-height: 1.5; text-wrap: pretty; }
+
+.clocks { background: var(--surface); border: 1px solid var(--line); padding: 20px 22px; }
+.clock { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-block: 10px; }
+.clock + .clock { border-top: 1px solid var(--line); }
+.clock .time { font-family: var(--font-mono); font-weight: 500; font-size: clamp(26px, 4vw, 34px); font-variant-numeric: tabular-nums; }
+.clock .zone { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--muted); }
+.clock .zone b { display: block; font-weight: 500; color: var(--ink); font-size: 14px; letter-spacing: 0.04em; }
+.clocks p { margin: 12px 0 0; font-size: 13px; color: var(--muted); }
+
+/* Sections */
+.row { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px 40px; padding-block: 40px; border-top: 1px solid var(--line); }
+.row > h2 { margin: 0; font-family: var(--font-mono); font-weight: 500; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
+
+.work { margin: 0; display: grid; }
+.work > div { display: grid; grid-template-columns: minmax(0, 190px) minmax(0, 1fr); gap: 4px 28px; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.work > div:first-child { padding-top: 0; }
+.work > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.work dt { font-family: var(--font-display); font-weight: 800; font-size: 22px; line-height: 1.25; }
+.work dd { margin: 0; min-width: 0; }
+.work dd p { margin: 0 0 6px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.tags li { font-family: var(--font-mono); font-size: 12px; padding: 2px 8px; border: 1px solid var(--line); background: var(--surface); }
+
+.projects { display: grid; gap: 20px; }
+.project { background: var(--surface); border: 1px solid var(--line); padding: 24px 26px; }
+.project.feature { border-color: var(--sakura); }
+.project h3 { margin: 0 0 4px; font-family: var(--font-display); font-weight: 800; font-size: 28px; line-height: 1.2; }
+.project .meta { margin: 0 0 12px; }
+.project p { margin: 0 0 12px; max-width: 40em; text-wrap: pretty; }
+.project .link { font-family: var(--font-mono); font-size: 13px; }
+.project.feature h3 span { color: var(--sakura); }
+
+.contact p { margin: 0 0 12px; max-width: 36em; }
+.btn { display: inline-block; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 600; padding: 10px 18px; }
+.btn:hover { filter: brightness(1.1); }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+footer { padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 40px 48px; }
+  .row { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 32px; }
+  .row > h2 { padding-top: 0; }
+  .work > div { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="mono">Hem / ヘマンタ</span>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Introduction">
+    <div>
+      <h1>Hem<span class="kana">ギミレ ヘマンタ</span></h1>
+      <p class="lede">I build and run the systems behind an FX trading company, and on the side I make a platform that teaches Japanese to learners from Nepal and South Asia.</p>
+    </div>
+    <aside class="clocks" aria-label="Current time in Japan and Nepal">
+      <div class="clock">
+        <span class="zone"><b>Japan</b>JST · UTC+9</span>
+        <span class="time" id="t-jst">--:--</span>
+      </div>
+      <div class="clock">
+        <span class="zone"><b>Nepal</b>NPT · UTC+5:45</span>
+        <span class="time" id="t-npt">--:--</span>
+      </div>
+      <p>Japan is 3 hours 15 minutes ahead of Nepal.</p>
+    </aside>
+  </section>
+
+  <section class="row" id="work">
+    <h2>Work</h2>
+    <dl class="work">
+      <div>
+        <dt>Web frontend</dt>
+        <dd>
+          <p>Interfaces for live FX rates, a swap calendar, and a chat widget that answers customer FAQs.</p>
+        </dd>
+      </div>
+      <div>
+        <dt>Cloud on AWS</dt>
+        <dd>
+          <p>Real-time delivery of prices to the browser and the storage and servers behind it.</p>
+          <ul class="tags"><li>Lambda</li><li>API Gateway WebSocket</li><li>S3</li><li>EC2</li></ul>
+        </dd>
+      </div>
+      <div>
+        <dt>MT5 platform</dt>
+        <dd>
+          <p>Administering MetaTrader 5 and connecting its price feed to the web.</p>
+        </dd>
+      </div>
+      <div>
+        <dt>Automation</dt>
+        <dd>
+          <p>Pipelines that move files and run routine jobs without anyone watching them.</p>
+          <ul class="tags"><li>SFTP to SharePoint</li><li>Batch scripts</li><li>GitHub Actions</li></ul>
+        </dd>
+      </div>
+      <div>
+        <dt>Compliance and docs</dt>
+        <dd>
+          <p>Writing the documentation that keeps systems auditable and the team on the same page.</p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="row" id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="project feature">
+        <h3>Sakura Academy <span>桜</span></h3>
+        <p class="mono meta">Independent · Japanese language learning</p>
+        <p>A learning platform built for Nepali and South Asian students who want to study Japanese, with lessons that start from the language they already know.</p>
+        <a class="link" href="https://learnwithsakura.com" target="_blank" rel="noopener">learnwithsakura.com</a>
+      </article>
+      <article class="project">
+        <h3>FX paper trading simulator</h3>
+        <p class="mono meta">Personal project · Practice trading</p>
+        <p>A simulator for placing trades without risking money, driven by a live price feed from MT5 so the market it shows is the real one.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="row contact" id="contact">
+    <h2>Contact</h2>
+    <div>
+      <p>The best place to see what I am making and to reach me right now is Sakura Academy.</p>
+      <a class="btn" href="https://learnwithsakura.com" target="_blank" rel="noopener">Visit Sakura Academy</a>
+    </div>
+  </section>
+
+  <footer class="mono">
+    <span>© 2026 Hem</span>
+    <span>ありがとうございます</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function fmt(zone) {
+    return new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: zone }).format(new Date());
+  }
+  function tick() {
+    try {
+      document.getElementById('t-jst').textContent = fmt('Asia/Tokyo');
+      document.getElementById('t-npt').textContent = fmt('Asia/Kathmandu');
+    } catch (e) {}
+  }
+  tick();
+  setInterval(tick, 15000);
+})();
+</script>

@@ -1,5 +1,9 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hemanta Ghimire</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
@@ -26,7 +30,7 @@
   --hero-muted: #C4CCE6;
   --hero-gt1: #9AA6FF;
   --hero-gt2: #CB8CFF;
-  --radius: 18px;
+  --radius: 11px;
   --font: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-script: "Caveat", "Segoe Script", cursive;
 }
@@ -98,7 +102,13 @@ h1, h2, h3, h4, p { margin: 0; }
 .hbody { padding: clamp(36px, 7vw, 84px) clamp(20px, 5vw, 64px) clamp(36px, 5vw, 56px); max-width: 680px; display: grid; gap: 18px; justify-items: start; }
 .hello { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; color: var(--hero-gt1); }
 .hbody h1 { font-size: clamp(40px, 6.4vw, 68px); font-weight: 800; line-height: 1.05; letter-spacing: -0.025em; }
-.hbody h1 span { background: linear-gradient(90deg, var(--hero-gt1), var(--hero-gt2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hbody h1 .grad { background: linear-gradient(90deg, var(--hero-gt1), var(--hero-gt2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ch { visibility: hidden; }
+.ch.on { visibility: visible; }
+.caret { display: inline-block; position: relative; width: 0.06em; height: 0.86em; margin-left: 0.03em; margin-right: -0.09em; vertical-align: -0.06em; background: var(--hero-gt2); animation: blink 0.9s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.caret.ink { width: 2px; height: 0.8em; margin-left: 2px; margin-right: -4px; background: currentColor; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .role { font-size: clamp(18px, 2.4vw, 24px); font-weight: 600; }
 .hbody p.lead { color: var(--hero-muted); max-width: 30em; font-size: 15px; text-wrap: pretty; }
 .hbtns { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -219,6 +229,19 @@ a.ext:not(.off):hover { color: var(--accent-text); }
 .hbody { transform: translate3d(0, var(--by, 0px), 0); opacity: var(--bo, 1); }
 .rv { opacity: 0.2; transform: translateY(34px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--d, 0ms); }
 .rv.in { opacity: 1; transform: none; }
+/* Experience timeline: the line draws down and each step arrives in turn */
+.xlist.pre::before { transform: scaleY(0); transform-origin: top; }
+.xlist.pre.go::before { transform: scaleY(1); transition: transform var(--tl, 2.6s) linear 0.3s; }
+.xlist.pre .xi { opacity: 0; transform: translateX(-22px); }
+.xlist.pre .xi.show { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.xlist.pre .xic { transform: scale(0.5); }
+.xlist.pre .xi.show .xic { transform: none; transition: transform 0.5s cubic-bezier(0.3, 1.5, 0.5, 1); }
+/* Get In Touch: items arrive one after another */
+.sq { opacity: 0; transform: translateX(-22px); }
+.sq.sq-up { transform: translateY(18px); }
+.sq.show { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.sq .fi { transform: scale(0.5); }
+.sq.show .fi { transform: none; transition: transform 0.5s cubic-bezier(0.3, 1.5, 0.5, 1); }
 @media (max-width: 1000px) { .slinks { display: none; } }
 @media (max-width: 640px) { .snav .sname { display: none; } }
 @media (prefers-reduced-motion: reduce) {
@@ -230,6 +253,9 @@ a.ext:not(.off):hover { color: var(--accent-text); }
 }
 </style>
 
+<style>html, body { margin: 0; } img { max-width: 100%; } [hidden] { display: none !important; }</style>
+</head>
+<body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
   <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
@@ -294,7 +320,7 @@ a.ext:not(.off):hover { color: var(--accent-text); }
 
     <div class="hbody">
       <span class="hello"><svg class="ic"><use href="#i-user"/></svg>Hello, I'm</span>
-      <h1>Hemanta <span>Ghimire</span></h1>
+      <h1 id="hero-name" aria-label="Hemant Ghimire"><span aria-hidden="true"><span class="word">Hemant</span> <span class="word grad">Ghimire</span></span></h1>
       <p class="role">Software Developer &amp; Problem Solver</p>
       <p class="lead">I build modern web applications, explore new technologies, and love turning ideas into real products. Currently based in Nepal, open to remote opportunities.</p>
       <div class="hbtns">
@@ -325,7 +351,7 @@ a.ext:not(.off):hover { color: var(--accent-text); }
         <div class="facts">
           <div class="fact"><span class="fi"><svg class="ic"><use href="#i-pin"/></svg></span><div><small>Location</small><span>Nepal</span></div></div>
           <div class="fact"><span class="fi"><svg class="ic"><use href="#i-mail"/></svg></span><div><small>Email</small><span data-email>hemantaghimire@gmail.com</span></div></div>
-          <div class="fact"><span class="fi"><svg class="ic"><use href="#i-cal"/></svg></span><div><small>Experience</small><span>1+ Years</span></div></div>
+          <div class="fact"><span class="fi"><svg class="ic"><use href="#i-cal"/></svg></span><div><small>Experience</small><span>2+ Years</span></div></div>
           <div class="fact"><span class="fi"><svg class="ic"><use href="#i-cap"/></svg></span><div><small>Education</small><span>Bachelor's (Computer Science)</span></div></div>
         </div>
       </div>
@@ -434,7 +460,7 @@ a.ext:not(.off):hover { color: var(--accent-text); }
   </section>
 
   <footer class="foot">
-    <a class="logo" href="#top"><b>HG</b>Hemanta Ghimire</a>
+    <a class="logo" href="#top"><b>HG</b>Hemant Ghimire</a>
     <span>© 2026 Hemanta Ghimire. All rights reserved.</span>
     <div class="socials">
       <a class="soc off" data-link="github" aria-label="GitHub"><svg class="ic"><use href="#i-github"/></svg></a>
@@ -447,20 +473,23 @@ a.ext:not(.off):hover { color: var(--accent-text); }
 
 <script>
 /* ============ EDIT HERE ============
-   images: paste an image URL or a relative path (e.g. "images/hero.jpg").
+   images: just put the files in an "images" folder next to this page, named as below (jpg, jpeg, png or webp).
+           A slot with no file shows a placeholder. You can also paste a full URL instead of a name.
    links:  paste full URLs. A link left empty stays greyed out (Blog stays hidden).
    formEndpoint: a form service URL (Formspree, or your own AWS Lambda) so the contact form can send. */
 var SITE = {
   email: 'hemantaghimire@gmail.com',
   formEndpoint: '',
+  imageFolder: 'images/',
+  imageTypes: ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP'],
   images: {
-    hero: '',          // wide landscape photo, subject on the right
-    portrait: '',      // portrait photo, 4:5
-    projectSakura: '', // Learn with Sakura screenshot
-    projectSakaku: '', // Sakaku app screenshot
-    projectAsahi: '',  // Asahi Markets platform screenshot
-    projectNepal: '',  // Nepal Business Ideas image
-    quote: ''          // tall image for the "Small Steps Big Progress" panel
+    hero: 'hero',                    // wide landscape photo, subject on the right
+    portrait: 'portrait',            // portrait photo, 4:5
+    projectSakura: 'project-sakura', // Learn with Sakura screenshot
+    projectSakaku: 'project-sakaku', // Sakaku app screenshot
+    projectAsahi: 'project-asahi',   // Asahi Markets platform screenshot
+    projectNepal: 'project-nepal',   // Nepal Business Ideas image
+    quote: 'quote'                   // tall image for the "Small Steps Big Progress" panel
   },
   links: {
     github: '',
@@ -482,13 +511,16 @@ var SITE = {
 
   /* Images */
   Array.prototype.forEach.call(document.querySelectorAll('img[data-img]'), function (img) {
-    var src = SITE.images[img.getAttribute('data-img')];
-    if (!src) return;
+    var v = SITE.images[img.getAttribute('data-img')];
+    if (!v) return;
+    var list = /[\/.]/.test(v) ? [v] : SITE.imageTypes.map(function (t) { return SITE.imageFolder + v + '.' + t; });
     img.onload = function () {
       img.hidden = false;
       if (img.parentNode && img.parentNode.classList.contains('media')) img.parentNode.classList.add('has-img');
     };
-    img.src = src;
+    function next() { if (list.length) img.src = list.shift(); }
+    img.onerror = next;
+    next();
   });
 
   /* Links */
@@ -575,6 +607,136 @@ var SITE = {
   });
   /* Scroll effects */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Hero name: typed one letter at a time, one word after the other */
+  (function () {
+    var h = document.getElementById('hero-name');
+    if (!h || reduce) return;
+    var words = h.querySelectorAll('.word');
+    var chars = [];
+    Array.prototype.forEach.call(words, function (w) {
+      var t = w.textContent;
+      w.textContent = '';
+      for (var i = 0; i < t.length; i++) {
+        var s = document.createElement('span');
+        s.className = 'ch';
+        s.textContent = t.charAt(i);
+        w.appendChild(s);
+        chars.push({ el: s, last: i === t.length - 1 });
+      }
+    });
+    if (!chars.length) return;
+    var caret = document.createElement('i');
+    caret.className = 'caret';
+    chars[0].el.parentNode.insertBefore(caret, chars[0].el);
+    var n = 0;
+    function step() {
+      if (n >= chars.length) {
+        setTimeout(function () { if (caret.parentNode) caret.parentNode.removeChild(caret); }, 2200);
+        return;
+      }
+      var c = chars[n++];
+      c.el.classList.add('on');
+      c.el.parentNode.insertBefore(caret, c.el.nextSibling);
+      setTimeout(step, c.last ? 320 : 85 + Math.random() * 55);
+    }
+    setTimeout(step, 450);
+  })();
+
+  /* Handwritten notes: typed letter by letter when they scroll into view */
+  function typeOnView(el) {
+    if (!el || reduce || !('IntersectionObserver' in window)) return;
+    var wrap = document.createElement('span');
+    wrap.setAttribute('aria-hidden', 'true');
+    var chars = [], label = [];
+    Array.prototype.forEach.call(el.childNodes, function (node) {
+      if (node.nodeType === 3) {
+        var t = node.nodeValue;
+        label.push(t);
+        for (var i = 0; i < t.length; i++) {
+          var s = document.createElement('span');
+          s.className = 'ch';
+          s.textContent = t.charAt(i);
+          wrap.appendChild(s);
+          chars.push({ el: s, last: i === t.length - 1 });
+        }
+      } else if (node.nodeName === 'BR') {
+        wrap.appendChild(document.createElement('br'));
+        label.push(' ');
+      }
+    });
+    if (!chars.length) return;
+    var sr = document.createElement('span');
+    sr.className = 'sr';
+    sr.textContent = label.join('').replace(/\s+/g, ' ').trim();
+    el.textContent = '';
+    el.appendChild(sr);
+    el.appendChild(wrap);
+    var caret = document.createElement('i');
+    caret.className = 'caret ink';
+    var n = 0;
+    function step() {
+      if (n >= chars.length) {
+        setTimeout(function () { if (caret.parentNode) caret.parentNode.removeChild(caret); }, 1600);
+        return;
+      }
+      var c = chars[n++];
+      c.el.classList.add('on');
+      c.el.parentNode.insertBefore(caret, c.el.nextSibling);
+      setTimeout(step, c.last ? 260 : 90 + Math.random() * 50);
+    }
+    var seen = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { seen.disconnect(); setTimeout(step, 350); }
+    }, { threshold: 0.6 });
+    seen.observe(el);
+  }
+  typeOnView(document.querySelector('.scribble'));
+  typeOnView(document.querySelector('.qpanel p'));
+
+  /* Experience timeline, step by step */
+  (function () {
+    var list = document.querySelector('.xlist');
+    if (!list || reduce || !('IntersectionObserver' in window)) return;
+    var items = list.querySelectorAll('.xi');
+    var gap = 650;
+    list.style.setProperty('--tl', (items.length * gap / 1000).toFixed(1) + 's');
+    list.classList.add('pre');
+    var seen = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      seen.disconnect();
+      list.classList.add('go');
+      Array.prototype.forEach.call(items, function (el, i) {
+        setTimeout(function () { el.classList.add('show'); }, 300 + i * gap);
+      });
+    }, { threshold: 0.35 });
+    seen.observe(list);
+  })();
+
+  /* Get In Touch, step by step */
+  (function () {
+    var c = document.querySelector('.contact');
+    if (!c || reduce || !('IntersectionObserver' in window)) return;
+    var left = c.children[0];
+    var form = c.querySelector('.form');
+    if (!left || !form) return;
+    var items = [left.querySelector('h3'), left.querySelector('.sub')]
+      .concat(Array.prototype.slice.call(left.querySelectorAll('.cinfo .fact')))
+      .concat([left.querySelector('#to-form'), form, form.children[0], form.children[1], form.children[2]]);
+    items = items.filter(Boolean);
+    items.forEach(function (el) {
+      el.classList.add('sq');
+      if (form === el || form.contains(el)) el.classList.add('sq-up');
+    });
+    var seen = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      seen.disconnect();
+      items.forEach(function (el, i) {
+        setTimeout(function () { el.classList.add('show'); }, 200 + i * 380);
+      });
+    }, { threshold: 0.2 });
+    seen.observe(c);
+  })();
+
   var bar = document.getElementById('progress-bar');
   var snav = document.getElementById('snav');
   var ticking = false;
@@ -625,7 +787,7 @@ var SITE = {
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     var groups = ['.portrait', '.about > div:last-child', '.skills > h3', '.skills > .sub', '.tile', '.phead', '.pcard', '.qpanel',
-                  '.exp > h3', '.exp > .sub', '.xi', '.contact > div:first-child', '.form', '.foot'];
+                  '.exp > h3', '.exp > .sub', '.foot'];
     groups.forEach(function (sel) {
       Array.prototype.forEach.call(document.querySelectorAll(sel), function (el, i) {
         if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
@@ -638,3 +800,6 @@ var SITE = {
   }
 })();
 </script>
+
+</body>
+</html>
